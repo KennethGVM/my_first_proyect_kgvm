@@ -20,9 +20,8 @@ export class AuthService {
 
     if (!foundUser) return null;
   
-   // const isPasswordValid = await bcrypt.compare(user.password, foundUser.password);
+   const isPasswordValid = await bcrypt.compare(user.password, foundUser.password);
 
-   const isPasswordValid = user.password==foundUser.password?true:false;
 
     if (isPasswordValid) {
       return this.jwtService.sign({
